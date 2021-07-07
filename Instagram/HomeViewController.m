@@ -32,14 +32,15 @@
     
     // Do any additional setup after loading the view.
 }
-- (IBAction)onLogout:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 
+- (IBAction)didLogout:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error){
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }];
+
 }
+
 - (void)onTimer {
    // Add code to be run periodically
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
