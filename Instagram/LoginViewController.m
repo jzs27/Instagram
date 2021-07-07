@@ -10,6 +10,9 @@
 #import "HomeViewController.h"
 
 @implementation LoginViewController
+- (void)viewDidLoad{
+    [super viewDidLoad];
+}
 - (IBAction)didLogin:(id)sender {
     [self loginUser];
 }

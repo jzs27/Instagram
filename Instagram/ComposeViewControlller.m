@@ -20,6 +20,9 @@
 
 
 @implementation ComposeViewControlller
+- (void)viewDidLoad{
+    [super viewDidLoad];
+}
 - (IBAction)didCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -32,6 +35,7 @@
             NSLog(@"Yo it succeeded!");
         }
     }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -59,12 +63,27 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     //UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
+    CGSize size = CGSizeMake(1500, 1500);
+    self.postView.image = [self resizeImage:originalImage withSize:size];
     // Do something with the images (based on your use case)
-    self.postView.image = originalImage;
+    //self.postView.image = originalImage;
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 
 

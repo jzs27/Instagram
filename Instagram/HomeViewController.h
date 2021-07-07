@@ -1,8 +1,8 @@
 //
-//  HomeViewController.h
+//  HomeTimelineViewController.h
 //  Instagram
 //
-//  Created by jessicasyl on 7/6/21.
+//  Created by jessicasyl on 7/7/21.
 //
 
 #import <UIKit/UIKit.h>
