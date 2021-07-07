@@ -6,10 +6,14 @@
 //
 
 #import "ComposeViewControlller.h"
+#import "Parse/Parse.h"
+#import "PostObject.h"
 
 #import <UIKit/UIKit.h>
 @interface ComposeViewControlller() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *postView;
+@property (weak, nonatomic) IBOutlet UITextField *captionTextField;
+@property (nonatomic, strong) PostObject *post;
 
 
 @end
@@ -20,6 +24,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+- (IBAction)didPost:(id)sender {
+    [PostObject postUserImage:self.postView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            
+        } else {
+            NSLog(@"Yo it succeeded!");
+        }
+    }];
+}
+
 
 - (IBAction)didTapImage:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -53,12 +67,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-//imagePickerVC.delegate = self;
-//imagePickerVC.allowsEditing = YES;
-//imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//
-//[self presentViewController:imagePickerVC animated:YES completion:nil];
 
 
 

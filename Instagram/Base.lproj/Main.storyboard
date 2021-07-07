@@ -114,6 +114,9 @@
                                 <rect key="frame" x="342" y="67" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="didPost:" destination="sAU-r6-m3F" eventType="touchUpInside" id="oxk-zR-cdj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-uf-sW6">
                                 <rect key="frame" x="19" y="57" width="48" height="30"/>
@@ -135,6 +138,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="S40-8g-Pxw"/>
                     <connections>
+                        <outlet property="captionTextField" destination="QDd-cC-a9g" id="lZa-m7-Nkf"/>
                         <outlet property="postView" destination="53x-Hj-vbk" id="cuE-jx-MRW"/>
                     </connections>
                 </viewController>
