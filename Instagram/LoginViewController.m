@@ -6,7 +6,7 @@
 //
 
 #import "LoginViewController.h"
-#import "Parse/Parse.h"
+#import <Parse/Parse.h>
 #import "HomeViewController.h"
 
 
@@ -37,10 +37,11 @@
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
+            [self createAlert:error.localizedDescription];
+            [self clearFields];
         } else {
             NSLog(@"User logged in successfully");
-            self.usernameTextField.text = @"";
-            self.passwordTextField.text = @"";
+            [self clearFields];
             
             [self performSegueWithIdentifier:@"firstSegue" sender:nil];
             
@@ -48,6 +49,23 @@
         }
     }];
     
+}
+
+-(void) createAlert:(NSString *)error{
+    self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
+    self.okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                     }];
+    [self.alert addAction:self.okAction];
+    [self presentViewController:self.alert animated:YES completion:^{
+    }];
+}
+
+-(void)clearFields{
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text=@"";
 }
 
 @end
