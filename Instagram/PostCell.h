@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *captionDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeAgoDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateDetailsLabel;
+@property bool *didTap; 
 
 @end
 

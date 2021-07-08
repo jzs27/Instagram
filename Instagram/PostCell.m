@@ -38,6 +38,8 @@
     self.captionDetailsLabel.alpha = 0;
     self.dateDetailsLabel.alpha = 0;
     self.timeAgoDetailsLabel.alpha = 0;
+    self.didTap = NO;
+    
     
     //set both lables alpha's equal to 0
 }
@@ -60,24 +62,33 @@
     formatter.dateStyle = NSDateFormatterShortStyle;
     formatter.timeStyle = NSDateFormatterNoStyle;
     self.timeAgoLabel.text = date.shortTimeAgoSinceNow;
+    
+    self.captionDetailsLabel.text = self.captionLabel.text;
+    self.timeAgoDetailsLabel.text = self.timeAgoLabel.text;
 
     
 }
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)sender{
-    self.postView.alpha = 0.5;
-    NSLog(@"Tapping a post!");
-    self.captionDetailsLabel.text = self.captionLabel.text;
-    self.timeAgoDetailsLabel.text = self.timeAgoLabel.text;
+    if (self.didTap == NO){
+        self.didTap = YES;
+        self.postView.alpha = 0.5;
+        
+        
+        self.captionDetailsLabel.alpha = 1;
+        self.dateDetailsLabel.alpha = 1;
+        self.timeAgoDetailsLabel.alpha = 1;
+    }
+    else{
+        self.didTap = NO;
+        self.postView.alpha = 1;
+        
+        self.captionDetailsLabel.alpha = 0;
+        self.dateDetailsLabel.alpha = 0;
+        self.timeAgoDetailsLabel.alpha =0;
+    }
     
-    self.captionDetailsLabel.alpha = 1;
-    self.dateDetailsLabel.alpha = 1;
-    self.timeAgoDetailsLabel.alpha = 1;
     
-    //make outlets for the labels in the .h file
-    //set alpha for both labels = 1
-    // self.nameLabel.alpha = 1;
-    //set the data for the text of the labels
     
 }
 
