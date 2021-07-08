@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "HomeViewController.h"
 
+
 @implementation LoginViewController
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -22,26 +23,11 @@
 }
 
 - (void)registerUser {
-    // initialize a user object
-    PFUser *newUser = [PFUser user];
-    
-    // set user properties
-    newUser.username = self.usernameTextField.text;
-    //newUser.email = self.emailField.text;
-    newUser.password = self.passwordTextField.text;
-    
-    // call sign up function on the object
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
-        } else {
-            NSLog(@"User registered successfully");
-            [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+
+    [self performSegueWithIdentifier:@"secondSegue" sender:nil];
             
-            // manually segue to logged in view
-        }
-    }];
-    
+         
+      
 }
 
 - (void)loginUser {
@@ -53,6 +39,9 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
+            self.usernameTextField.text = @"";
+            self.passwordTextField.text = @"";
+            
             [self performSegueWithIdentifier:@"firstSegue" sender:nil];
             
             // display view controller that needs to shown after successful login
