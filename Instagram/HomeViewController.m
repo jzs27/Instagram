@@ -45,8 +45,10 @@
    // Add code to be run periodically
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    //[query whereKey:@"likesCount" greaterThan:@100];
+    [query includeKey:@"author"];
+    
     query.limit = 20;
+    [query orderByDescending:@"createdAt"];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {

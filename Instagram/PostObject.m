@@ -6,6 +6,7 @@
 //
 
 #import "PostObject.h"
+#import "UserObject.h"
 
 @implementation PostObject
     
@@ -15,6 +16,7 @@
 @dynamic caption;
 @dynamic image;
 @dynamic likeCount;
+//@dynamic username;
 @dynamic commentCount;
 
 + (nonnull NSString *)parseClassName {
@@ -47,6 +49,32 @@
     }
     
     return [PFFileObject fileObjectWithName:@"image.png"  data:imageData];
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self){
+    //self.author = dictionary[@"author"];
+    self.caption = dictionary[@"caption"];
+    self.postID = dictionary[@"objectID"];
+    self.userID = dictionary[@"author"][@"objectID"];
+    self.image = dictionary[@"image"];
+    self.likeCount = dictionary[@"likecount"];
+    self.commentCount = dictionary[@"commmentCount"];
+
+    NSDictionary *user = dictionary[@"author"];
+    self.author = [[UserObject alloc] initWithDictionary:user];
+     }
+     return self;
+ }
+
++ (NSMutableArray *)postsWithArray:(NSArray *)dictionaries{
+    NSMutableArray *posts = [NSMutableArray array];
+    for (NSDictionary *dictionary in dictionaries) {
+        PostObject *post = [[PostObject alloc] initWithDictionary:dictionary];
+        [posts addObject:post];
+    }
+    return posts;
 }
 
 @end
