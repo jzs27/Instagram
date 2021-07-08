@@ -16,14 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"There is something wrong. Try again." preferredStyle:(UIAlertControllerStyleAlert)];
     
-    self.okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
-    [self.alert addAction:self.okAction];
+    
+//    self.okAction = [UIAlertAction actionWithTitle:@"OK"
+//                                                       style:UIAlertActionStyleDefault
+//                                                     handler:^(UIAlertAction * _Nonnull action) {
+//                                                             // handle response here.
+//                                                     }];
+//    [self.alert addAction:self.okAction];
 
 }
 - (IBAction)didSignUp:(id)sender {
@@ -37,12 +37,10 @@
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
+            [self clearFields];
+            [self createAlert:error.localizedDescription];
+
             
-            [self presentViewController:self.alert animated:YES completion:^{
-                // optional code for what happens after the alert controller has finished presenting
-            }];
-            self.usernameField.text = @"";
-            self.passwordField.text = @"";
         
         } else {
             NSLog(@"User registered successfully");
@@ -57,6 +55,18 @@
 -(void)clearFields{
     self.usernameField.text = @"";
     self.passwordField.text=@"";
+}
+
+-(void) createAlert:(NSString *)error{
+    self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
+    self.okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                     }];
+    [self.alert addAction:self.okAction];
+    [self presentViewController:self.alert animated:YES completion:^{
+    }];
 }
 
 
