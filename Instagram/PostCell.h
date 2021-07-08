@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeAgoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *captionDetailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeAgoDetailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateDetailsLabel;
 
 @end
 

@@ -30,6 +30,12 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     
     
+    UIImage *img = [UIImage imageNamed:@"Instagram-Logo.png"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [imgView setImage:img];
+    // setContent mode aspect fit
+    [imgView setContentMode:UIViewContentModeScaleAspectFit];
+    self.navigationItem.titleView = imgView;
     // Do any additional setup after loading the view.
 }
 
@@ -62,6 +68,8 @@
         [self.refreshControl endRefreshing];
     }];
 }
+
+
 
 
 
