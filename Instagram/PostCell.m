@@ -63,8 +63,10 @@
     formatter.timeStyle = NSDateFormatterNoStyle;
     self.timeAgoLabel.text = date.shortTimeAgoSinceNow;
     
+    
     self.captionDetailsLabel.text = self.captionLabel.text;
     self.timeAgoDetailsLabel.text = self.timeAgoLabel.text;
+    self.dateDetailsLabel.text = [formatter stringFromDate:date];
 
     
 }
@@ -91,6 +93,15 @@
     
     
 }
+//- (IBAction)didTapLikeButton:(id)sender {
+//    NSString *postID = self.post.postID;
+//    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+//    [query getObjectInBackgroundWithId:postID block:^(PFObject *post, NSError *error) {
+//            post[@"likeCount"] +=1;
+//        [post saveInBackground];
+//
+//    }];
+//}
 
 
 
