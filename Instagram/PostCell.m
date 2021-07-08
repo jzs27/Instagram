@@ -28,6 +28,9 @@
     PFFileObject *image = self.post.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.postView setImageWithURL:imageURL];
+    //self.usernameLabel.text = self.post.author;
+    self.likeCountLabel.text =[self.post.likeCount stringValue];
+    
 }
 
 @end

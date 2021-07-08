@@ -162,8 +162,25 @@
                                                         <constraint firstAttribute="width" secondItem="pUq-oo-yQ2" secondAttribute="height" id="Vud-5z-SZh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment Section Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUx-hg-rBD">
-                                                    <rect key="frame" x="8" y="422" width="398" height="108"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsl-RF-mbj">
+                                                    <rect key="frame" x="10" y="456" width="82" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBi-Bv-aaW">
+                                                    <rect key="frame" x="10" y="424" width="21" height="22"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="heart" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkb-CR-axa">
+                                                    <rect key="frame" x="41" y="424" width="22" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUx-hg-rBD">
+                                                    <rect key="frame" x="102" y="456" width="60" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -171,17 +188,24 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="pUq-oo-yQ2" firstAttribute="top" secondItem="49Q-qQ-40u" secondAttribute="top" id="11T-hI-uVW"/>
+                                                <constraint firstItem="iBi-Bv-aaW" firstAttribute="top" secondItem="pUq-oo-yQ2" secondAttribute="bottom" constant="10" id="Bgl-Rb-y4Q"/>
                                                 <constraint firstItem="pUq-oo-yQ2" firstAttribute="leading" secondItem="49Q-qQ-40u" secondAttribute="leading" id="CPf-5g-IO0"/>
-                                                <constraint firstAttribute="bottom" secondItem="aUx-hg-rBD" secondAttribute="bottom" constant="8" id="JQv-bt-Lle"/>
-                                                <constraint firstItem="aUx-hg-rBD" firstAttribute="top" secondItem="pUq-oo-yQ2" secondAttribute="bottom" constant="8" id="JwC-mq-fZW"/>
+                                                <constraint firstItem="dsl-RF-mbj" firstAttribute="leading" secondItem="49Q-qQ-40u" secondAttribute="leading" constant="10" id="Lmn-Pc-Lud"/>
+                                                <constraint firstItem="dsl-RF-mbj" firstAttribute="top" secondItem="iBi-Bv-aaW" secondAttribute="bottom" constant="10" id="Oz1-R4-yXq"/>
                                                 <constraint firstAttribute="trailing" secondItem="pUq-oo-yQ2" secondAttribute="trailing" id="PGL-DD-azI"/>
-                                                <constraint firstItem="aUx-hg-rBD" firstAttribute="leading" secondItem="49Q-qQ-40u" secondAttribute="leading" constant="8" id="dpI-qM-qgc"/>
-                                                <constraint firstAttribute="trailing" secondItem="aUx-hg-rBD" secondAttribute="trailing" constant="8" id="wzv-3s-hVY"/>
+                                                <constraint firstItem="aUx-hg-rBD" firstAttribute="leading" secondItem="dsl-RF-mbj" secondAttribute="trailing" constant="10" id="VAm-KZ-Rz8"/>
+                                                <constraint firstItem="hkb-CR-axa" firstAttribute="leading" secondItem="iBi-Bv-aaW" secondAttribute="trailing" constant="10" id="ecb-Ds-Abk"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aUx-hg-rBD" secondAttribute="bottom" constant="30" id="mue-Ej-LOe"/>
+                                                <constraint firstItem="aUx-hg-rBD" firstAttribute="centerY" secondItem="dsl-RF-mbj" secondAttribute="centerY" id="ofQ-ra-5nI"/>
+                                                <constraint firstItem="iBi-Bv-aaW" firstAttribute="leading" secondItem="49Q-qQ-40u" secondAttribute="leading" constant="10" id="vZq-n7-0kl"/>
+                                                <constraint firstItem="hkb-CR-axa" firstAttribute="top" secondItem="pUq-oo-yQ2" secondAttribute="bottom" constant="10" id="yAJ-KG-Kc4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="aUx-hg-rBD" id="Pr0-uH-BWB"/>
+                                            <outlet property="likeCountLabel" destination="hkb-CR-axa" id="LUO-0Z-G6v"/>
                                             <outlet property="postView" destination="pUq-oo-yQ2" id="hJb-9d-kCi"/>
+                                            <outlet property="usernameLabel" destination="dsl-RF-mbj" id="EFa-Yw-XQF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -224,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iMt-QA-tTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="106"/>
+            <point key="canvasLocation" x="1869.5652173913045" y="105.80357142857143"/>
         </scene>
         <!--Compose View Controlller-->
         <scene sceneID="yLM-hG-KWP">
@@ -347,6 +371,7 @@
         <segue reference="Fz6-Kw-CNK"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
