@@ -45,7 +45,7 @@
         } else {
             NSLog(@"User registered successfully");
             [self clearFields];
-            [self performSegueWithIdentifier:@"thirdSegue" sender:nil];
+            [self performSegueWithIdentifier:@"fromSignUp" sender:nil];
             
             // manually segue to logged in view
         }

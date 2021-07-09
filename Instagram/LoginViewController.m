@@ -43,7 +43,7 @@
             NSLog(@"User logged in successfully");
             [self clearFields];
             
-            [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+            [self performSegueWithIdentifier:@"fromLogin" sender:nil];
             
             // display view controller that needs to shown after successful login
         }

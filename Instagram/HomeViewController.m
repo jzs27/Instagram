@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "PostCell.h"
 #import "PostObject.h"
+#import "LoginViewController.h"
+#import "SceneDelegate.h"
 
 
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -47,8 +49,15 @@ NSString *HeaderViewIdentifier = @"TableViewHeaderView";
 }
 
 - (IBAction)didLogout:(id)sender {
+    
+    
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error){
+        //[[UIApplication sharedApplication].keyWindow setRootViewController:@"LoginViewController"];
         [self dismissViewControllerAnimated:YES completion:nil];
+        SceneDelegate *sceneDelegate = (SceneDelegate *)[UIApplication sharedApplication].connectedScenes.allObjects[0].delegate;
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                sceneDelegate.window.rootViewController = loginViewController;
         
     }];
 
