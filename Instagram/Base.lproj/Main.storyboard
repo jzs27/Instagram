@@ -312,7 +312,7 @@
             <objects>
                 <viewController id="sAU-r6-m3F" customClass="ComposeViewControlller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6y-BI-dKw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="53x-Hj-vbk">
@@ -336,7 +336,7 @@
                     <navigationItem key="navigationItem" id="S40-8g-Pxw">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="zKI-SW-yTD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tp3-uf-sW6">
-                                <rect key="frame" x="20" y="13" width="48" height="30"/>
+                                <rect key="frame" x="20" y="7" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
@@ -346,7 +346,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="yTI-91-aY3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KJz-dr-cYZ">
-                                <rect key="frame" x="354" y="13" width="40" height="30"/>
+                                <rect key="frame" x="354" y="7" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share"/>
                                 <connections>
@@ -378,7 +378,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yop-cn-Qov">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="588"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -399,10 +399,22 @@
                         <viewLayoutGuide key="safeArea" id="oBq-IX-fEb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NHW-DG-fgF"/>
+                    <navigationItem key="navigationItem" id="NHW-DG-fgF">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="JO7-Qz-Ula">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cES-UJ-bJu">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapNext:" destination="xoY-Ku-UdJ" eventType="touchUpInside" id="eYF-VU-cGg"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captureImageView" destination="26f-Ze-emO" id="1mg-yg-pRX"/>
                         <outlet property="previewView" destination="yop-cn-Qov" id="2yr-RE-TYA"/>
+                        <segue destination="WOY-FE-gH8" kind="show" identifier="fromCamera" id="hS1-Ve-Lr3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3uw-Wu-nWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -466,8 +478,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WOY-FE-gH8" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dI3-2D-FA7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6mQ-rd-mBh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -654,6 +667,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="nwI-sj-V2b"/>
+        <segue reference="hS1-Ve-Lr3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Instagram-Logo" width="3000" height="1875"/>

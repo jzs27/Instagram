@@ -16,12 +16,17 @@
 @property (nonatomic, strong) PostObject *post;
 
 
+
 @end
 
 
 @implementation ComposeViewControlller
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    CGSize size = CGSizeMake(1500, 1500);
+    [self resizeImage:self.tempPostImage withSize:size];
+    self.postView.image = self.tempPostImage;
 }
 - (IBAction)didCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeViewControlller : UIViewController
-
+@property UIImage *tempPostImage;
 @end
 
 NS_ASSUME_NONNULL_END

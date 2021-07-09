@@ -8,12 +8,13 @@
 #import "CameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
-
+#import "ComposeViewControlller.h"
 
 @interface CameraViewController ()
 @property (nonatomic) AVCaptureSession *captureSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+
 
 @end
 
@@ -73,6 +74,9 @@
             });
         }
 }
+- (IBAction)didTapNext:(id)sender {
+    [self performSegueWithIdentifier:@"fromCamera" sender:self.captureImageView.image];
+}
 
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
     
@@ -88,14 +92,23 @@
     [super viewWillDisappear:animated];
     [self.captureSession stopRunning];
 }
-/*
+    
+    
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UIImage *postImage = sender;
+    UINavigationController *navController = [segue destinationViewController];
+    
+    //ComposeViewControlller *composeViewController  = [segue destinationViewController];
+    ComposeViewControlller *composeViewController = [navController topViewController];
+    composeViewController.tempPostImage = postImage;
+    
 }
-*/
+
 
 @end
