@@ -100,13 +100,13 @@ NSString *HeaderViewIdentifier = @"TableViewHeaderView";
     UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderViewIdentifier];
     PostObject *post = self.arrayOfPosts[section];
     header.textLabel.text = post.author.username;
-    header.backgroundColor = [[UIColor alloc] initWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
+    header.tintColor = [[UIColor alloc] initWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
     
     return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return 60;
 }
 
 /*
