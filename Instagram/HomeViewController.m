@@ -11,6 +11,7 @@
 #import "PostCell.h"
 #import "PostObject.h"
 
+
 @interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property NSMutableArray *arrayOfPosts;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
@@ -18,6 +19,8 @@
 @end
 
 @implementation HomeViewController
+
+NSString *HeaderViewIdentifier = @"TableViewHeaderView";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +31,10 @@
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.refreshControl addTarget:self action:@selector(onTimer) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:HeaderViewIdentifier];
+    
+    
     
     
     UIImage *img = [UIImage imageNamed:@"Instagram-Logo.png"];
@@ -75,7 +82,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
-    PostObject *post = self.arrayOfPosts[indexPath.row];
+    PostObject *post = self.arrayOfPosts[indexPath.section];
     cell.post = post;
     
     return cell;
@@ -83,7 +90,23 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.arrayOfPosts.count;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:HeaderViewIdentifier];
+    PostObject *post = self.arrayOfPosts[section];
+    header.textLabel.text = post.author.username;
+    header.backgroundColor = [[UIColor alloc] initWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
+    
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
 }
 
 /*
