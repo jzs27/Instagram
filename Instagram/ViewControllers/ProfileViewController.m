@@ -8,7 +8,7 @@
 #import "ProfileViewController.h"
 #import "PostObject.h"
 #import <Parse/Parse.h>
-
+#import "DetailsViewController.h"
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -33,7 +33,7 @@
     
     [self.profileCollectionView insertSubview:self.refreshControl atIndex:0];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.profileCollectionView.collectionViewLayout;
-            
+        //autolayout for collection view
         layout.minimumInteritemSpacing = 2.5;
         layout.minimumLineSpacing = 2.5;
         
@@ -45,7 +45,7 @@
 }
 
 - (void)onTimer {
-   // Add code to be run periodically
+   //calls query from database
     [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(onTimer) userInfo:nil repeats:true];
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
@@ -57,7 +57,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.arrayOfPosts=posts;
-            NSLog(@"%@",self.arrayOfPosts);
+            
             [self.profileCollectionView reloadData];
             // do something with the array of object returned by the call
         } else {
@@ -67,15 +67,29 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSLog(@"Tapping on cell!");
+    PostObject *post = sender;
+    
+    UINavigationController *navController  = [segue destinationViewController];
+    DetailsViewController *detailsViewController = [navController topViewController];
+    detailsViewController.post= post;
+    NSLog(@"%@",post);
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Tapping on cell!");
+    PostObject *post = self.arrayOfPosts[indexPath.row];
+    [self performSegueWithIdentifier:@"fromProfileView" sender:post];
+}
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionCell" forIndexPath:indexPath];

@@ -27,6 +27,10 @@
 		A5A78C76269797380051EC14 /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A78C75269797380051EC14 /* UserObject.m */; };
 		A5A78C792698BDC60051EC14 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A78C782698BDC60051EC14 /* ProfileViewController.m */; };
 		A5A78C7C2698BF990051EC14 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A78C7B2698BF990051EC14 /* PostCollectionCell.m */; };
+		A5A78C7F2698E9CC0051EC14 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A78C7E2698E9CC0051EC14 /* DetailsViewController.m */; };
+		A5A78C842698F4940051EC14 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A78C832698F4940051EC14 /* CameraViewController.m */; };
+		A5A78C862698F4C40051EC14 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A78C852698F4C40051EC14 /* AVFoundation.framework */; };
+		A5A78C882698F4CD0051EC14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A78C872698F4CC0051EC14 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,12 @@
 		A5A78C782698BDC60051EC14 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		A5A78C7A2698BF990051EC14 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
 		A5A78C7B2698BF990051EC14 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
+		A5A78C7D2698E9CC0051EC14 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		A5A78C7E2698E9CC0051EC14 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		A5A78C822698F4940051EC14 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		A5A78C832698F4940051EC14 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		A5A78C852698F4C40051EC14 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A5A78C872698F4CC0051EC14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B06D1FF0A33DA4801F156E62 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		D230A6213A03AFD13E6AAC34 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E14067E98837CDD25C7C6FEB /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A78C862698F4C40051EC14 /* AVFoundation.framework in Frameworks */,
+				A5A78C882698F4CD0051EC14 /* UIKit.framework in Frameworks */,
 				3A27F115E72CF4A02327F740 /* Pods_Instagram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +148,8 @@
 		8B93BF914C52EE825152B7F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5A78C872698F4CC0051EC14 /* UIKit.framework */,
+				A5A78C852698F4C40051EC14 /* AVFoundation.framework */,
 				D230A6213A03AFD13E6AAC34 /* Pods_Instagram.framework */,
 				3F0ADBC9C5A95A4FAA2E77CB /* Pods_Instagram_InstagramUITests.framework */,
 				5BD5BCEA6CD578525ED7C8FE /* Pods_InstagramTests.framework */,
@@ -168,33 +182,17 @@
 		A5A78C1C2694E93B0051EC14 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				A5A78C812698EE5D0051EC14 /* CellsandObjects */,
+				A5A78C802698EE1E0051EC14 /* ViewControllers */,
 				A5A78C1D2694E93B0051EC14 /* AppDelegate.h */,
 				A5A78C1E2694E93B0051EC14 /* AppDelegate.m */,
 				A5A78C202694E93B0051EC14 /* SceneDelegate.h */,
 				A5A78C212694E93B0051EC14 /* SceneDelegate.m */,
 				A5A78C262694E93B0051EC14 /* Main.storyboard */,
-				A5A78C6426951A4B0051EC14 /* PostObject.h */,
-				A5A78C6526951A4B0051EC14 /* PostObject.m */,
-				A5A78C552694F5B20051EC14 /* LoginViewController.h */,
-				A5A78C562694F5B20051EC14 /* LoginViewController.m */,
 				A5A78C292694E93C0051EC14 /* Assets.xcassets */,
 				A5A78C2B2694E93C0051EC14 /* LaunchScreen.storyboard */,
 				A5A78C2E2694E93C0051EC14 /* Info.plist */,
 				A5A78C2F2694E93C0051EC14 /* main.m */,
-				A5A78C6126950B5D0051EC14 /* ComposeViewControlller.h */,
-				A5A78C6226950B5D0051EC14 /* ComposeViewControlller.m */,
-				A5A78C692696317C0051EC14 /* PostCell.h */,
-				A5A78C6A2696317C0051EC14 /* PostCell.m */,
-				A5A78C6C26963B6E0051EC14 /* HomeViewController.h */,
-				A5A78C6D26963B6E0051EC14 /* HomeViewController.m */,
-				A5A78C6F269672A90051EC14 /* SignUpViewController.h */,
-				A5A78C70269672A90051EC14 /* SignUpViewController.m */,
-				A5A78C74269797380051EC14 /* UserObject.h */,
-				A5A78C75269797380051EC14 /* UserObject.m */,
-				A5A78C772698BDC60051EC14 /* ProfileViewController.h */,
-				A5A78C782698BDC60051EC14 /* ProfileViewController.m */,
-				A5A78C7A2698BF990051EC14 /* PostCollectionCell.h */,
-				A5A78C7B2698BF990051EC14 /* PostCollectionCell.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -215,6 +213,42 @@
 				A5A78C462694E93D0051EC14 /* Info.plist */,
 			);
 			path = InstagramUITests;
+			sourceTree = "<group>";
+		};
+		A5A78C802698EE1E0051EC14 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5A78C6126950B5D0051EC14 /* ComposeViewControlller.h */,
+				A5A78C6226950B5D0051EC14 /* ComposeViewControlller.m */,
+				A5A78C772698BDC60051EC14 /* ProfileViewController.h */,
+				A5A78C782698BDC60051EC14 /* ProfileViewController.m */,
+				A5A78C7D2698E9CC0051EC14 /* DetailsViewController.h */,
+				A5A78C7E2698E9CC0051EC14 /* DetailsViewController.m */,
+				A5A78C552694F5B20051EC14 /* LoginViewController.h */,
+				A5A78C562694F5B20051EC14 /* LoginViewController.m */,
+				A5A78C6C26963B6E0051EC14 /* HomeViewController.h */,
+				A5A78C6D26963B6E0051EC14 /* HomeViewController.m */,
+				A5A78C6F269672A90051EC14 /* SignUpViewController.h */,
+				A5A78C70269672A90051EC14 /* SignUpViewController.m */,
+				A5A78C822698F4940051EC14 /* CameraViewController.h */,
+				A5A78C832698F4940051EC14 /* CameraViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A5A78C812698EE5D0051EC14 /* CellsandObjects */ = {
+			isa = PBXGroup;
+			children = (
+				A5A78C7B2698BF990051EC14 /* PostCollectionCell.m */,
+				A5A78C7A2698BF990051EC14 /* PostCollectionCell.h */,
+				A5A78C75269797380051EC14 /* UserObject.m */,
+				A5A78C74269797380051EC14 /* UserObject.h */,
+				A5A78C6A2696317C0051EC14 /* PostCell.m */,
+				A5A78C692696317C0051EC14 /* PostCell.h */,
+				A5A78C6426951A4B0051EC14 /* PostObject.h */,
+				A5A78C6526951A4B0051EC14 /* PostObject.m */,
+			);
+			path = CellsandObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +492,8 @@
 				A5A78C6626951A4B0051EC14 /* PostObject.m in Sources */,
 				A5A78C1F2694E93B0051EC14 /* AppDelegate.m in Sources */,
 				A5A78C76269797380051EC14 /* UserObject.m in Sources */,
+				A5A78C7F2698E9CC0051EC14 /* DetailsViewController.m in Sources */,
+				A5A78C842698F4940051EC14 /* CameraViewController.m in Sources */,
 				A5A78C6B2696317C0051EC14 /* PostCell.m in Sources */,
 				A5A78C6326950B5D0051EC14 /* ComposeViewControlller.m in Sources */,
 				A5A78C6E26963B6E0051EC14 /* HomeViewController.m in Sources */,

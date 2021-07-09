@@ -33,9 +33,9 @@
             
         } else {
             NSLog(@"Yo it succeeded!");
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     }];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -65,8 +65,7 @@
     //UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     CGSize size = CGSizeMake(1500, 1500);
     self.postView.image = [self resizeImage:originalImage withSize:size];
-    // Do something with the images (based on your use case)
-    //self.postView.image = originalImage;
+    
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];

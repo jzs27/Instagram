@@ -27,8 +27,8 @@
 
             // TODO: Load Chat view controller and set as root view controller
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *homeViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-            self.window.rootViewController = homeViewController;
+            UIViewController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"InstaTabBarController"];
+            self.window.rootViewController = tabBarController;
         }
     }
 
