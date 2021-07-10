@@ -24,7 +24,7 @@
     [self resizeImage:self.tempPostImage withSize:size];
     
     //setting temporary image in case custom camera is used
-    self.postView.image = self.tempPostImage;
+    //self.postView.image = self.tempPostImage;
 }
 - (IBAction)didCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
