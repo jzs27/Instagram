@@ -7,10 +7,13 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "DateTools.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *postView;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeAgoLabel;
 
 @end
 
@@ -19,18 +22,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setPost:self.post];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setPost:(PostObject *)post{
     _post=post;
+    self.usernameLabel.text = self.post.author.username;
     self.captionLabel.text=post.caption;
     PFFileObject *image = self.post.image;
     NSURL *imageURL = [NSURL URLWithString:image.url];
     [self.postView setImageWithURL:imageURL];
     
-    
+    //creates date and time for post
+    NSDate *date= self.post.createdAt;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    self.timeAgoLabel.text = date.shortTimeAgoSinceNow;
 }
+
+- (IBAction)didTapBackButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 /*
 #pragma mark - Navigation

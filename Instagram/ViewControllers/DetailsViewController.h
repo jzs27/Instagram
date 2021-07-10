@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 @property (nonatomic) PostObject *post;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 - (IBAction)didTakePhoto:(id)sender {
     AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeJPEG}];
@@ -42,7 +42,7 @@
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:backCamera
                                                                         error:&error];
     if (!error) {
-        //Step 9
+        
     }
     else {
         NSLog(@"Error Unable to initialize back camera: %@", error.localizedDescription);

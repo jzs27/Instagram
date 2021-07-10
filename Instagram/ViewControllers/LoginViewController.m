@@ -19,15 +19,12 @@
 }
 - (IBAction)didSignUp:(id)sender {
     [self registerUser];
-    
 }
 
 - (void)registerUser {
-
+//go to Sign Up Screen
     [self performSegueWithIdentifier:@"secondSegue" sender:nil];
             
-         
-      
 }
 
 - (void)loginUser {
@@ -42,26 +39,25 @@
         } else {
             NSLog(@"User logged in successfully");
             [self clearFields];
-            
             [self performSegueWithIdentifier:@"fromLogin" sender:nil];
-            
-            // display view controller that needs to shown after successful login
+        
         }
     }];
     
 }
-
+//creates custom error alert
 -(void) createAlert:(NSString *)error{
     self.alert = [UIAlertController alertControllerWithTitle:@"Error" message:error preferredStyle:(UIAlertControllerStyleAlert)];
     self.okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
+                                                             
                                                      }];
     [self.alert addAction:self.okAction];
     [self presentViewController:self.alert animated:YES completion:^{
     }];
 }
+
 
 -(void)clearFields{
     self.usernameTextField.text = @"";

@@ -14,18 +14,16 @@
 @property (weak, nonatomic) IBOutlet UIImageView *postView;
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 @property (nonatomic, strong) PostObject *post;
-
-
-
 @end
-
 
 @implementation ComposeViewControlller
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    //creating size
     CGSize size = CGSizeMake(1500, 1500);
     [self resizeImage:self.tempPostImage withSize:size];
+    
+    //setting temporary image in case custom camera is used
     self.postView.image = self.tempPostImage;
 }
 - (IBAction)didCancel:(id)sender {
@@ -39,6 +37,7 @@
         } else {
             NSLog(@"Yo it succeeded!");
             [self dismissViewControllerAnimated:YES completion:nil];
+            
         }
     }];
 }

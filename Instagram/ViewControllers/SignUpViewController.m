@@ -16,14 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-//    self.okAction = [UIAlertAction actionWithTitle:@"OK"
-//                                                       style:UIAlertActionStyleDefault
-//                                                     handler:^(UIAlertAction * _Nonnull action) {
-//                                                             // handle response here.
-//                                                     }];
-//    [self.alert addAction:self.okAction];
+
 
 }
 - (IBAction)didSignUp:(id)sender {
