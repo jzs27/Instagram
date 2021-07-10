@@ -2,7 +2,7 @@
 
 Instagram is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -31,12 +31,10 @@ The following **additional** features are implemented:
 - [X] Implement a details page from the profile page.
 - [X] Implemented a 'fade' tap to view'.
 
-
-
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. It would be interested to have the user choose between the camera roll and the camera.
+2. In app editing (filters, blurring, sharpening, etc.)
 
 ## Video Walkthrough
 
@@ -53,7 +51,7 @@ Login and Logout
  Tap to view details
 
 ![ezgif com-gif-maker (29)](https://user-images.githubusercontent.com/71947227/125145629-9661ef80-e0e7-11eb-997a-021d3bd9fe81.gif)
-User pesistence
+User persistence
 
 ![ezgif com-gif-maker (37)](https://user-images.githubusercontent.com/71947227/125146211-52bcb500-e0ea-11eb-9763-ddb5fea0fb0d.gif)
 View last 20 posts
